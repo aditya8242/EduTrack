@@ -1,0 +1,146 @@
+:root {
+  --bg: #0b0f14;
+  --card: #111826;
+  --text: #e7eef8;
+  --muted: #9bb0c6;
+  --border: #223047;
+  --btn: #2f6feb;
+  --btn2: #1f2a3a;
+  --danger: #ff5c5c;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+}
+.container {
+  max-width: 980px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+.header {
+  margin-bottom: 18px;
+}
+h1 {
+  margin: 0 0 6px;
+  font-size: 32px;
+}
+h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  margin: 14px 0;
+}
+.muted {
+  color: var(--muted);
+}
+.small {
+  font-size: 12px;
+}
+
+.form .grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 12px;
+}
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0f1724;
+  color: var(--text);
+  outline: none;
+}
+input:focus {
+  border-color: #355b9a;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.space-between {
+  justify-content: space-between;
+}
+.search {
+  max-width: 260px;
+}
+
+button {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: var(--btn);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+button.secondary {
+  background: var(--btn2);
+  border-color: var(--border);
+}
+button.danger {
+  background: transparent;
+  border-color: var(--danger);
+  color: var(--danger);
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.tableWrap {
+  overflow: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+th,
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+th {
+  font-size: 12px;
+  color: var(--muted);
+}
+td {
+  font-size: 13px;
+}
+.status {
+  margin: 10px 0 0;
+  min-height: 18px;
+}
+.footer {
+  margin-top: 16px;
+}
+code {
+  background: #0f1724;
+  padding: 2px 6px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>EduTrack - Batch Entries</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <h1>EduTrack</h1>
+        <p class="muted">Minimal UI for Batch Entries (REST API Consumer)</p>
+      </header>
+
+      <section class="card">
+        <h2>Add Batch Entry</h2>
+        <form id="addForm" class="form">
+          <div class="grid">
+            <label>
+              Batch Name
+              <input name="batchName" placeholder="e.g. Spring 2026" required />
+            </label>
+            <label>
+              Course Name
+              <input
+                name="courseName"
+                placeholder="e.g. Data Structures"
+                required
+              />
+            </label>
+            <label>
+              Course Fees
+              <input
+                name="courseFees"
+                type="number"
+                min="0"
+                step="1"
+                placeholder="e.g. 1500"
+                required
+              />
+            </label>
+          </div>
+
+          <div class="row">
+            <button type="submit">Add</button>
+            <button type="button" id="refreshBtn" class="secondary">
+              Refresh List
+            </button>
+          </div>
+
+          <p id="status" class="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="row space-between">
+          <h2>Batch Entries</h2>
+          <input id="searchInput" class="search" placeholder="Search..." />
+        </div>
+
+        <div class="tableWrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Batch</th>
+                <th>Course</th>
+                <th>Fees</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="entriesTbody">
+              <tr>
+                <td colspan="5" class="muted">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Update Entry (Optional)</h2>
+        <form id="updateForm" class="form">
+          <div class="grid">
+            <label>
+              Entry ID
+              <input name="id" placeholder="paste _id here" required />
+            </label>
+            <label>
+              Batch Name
+              <input name="batchName" placeholder="new batch name" />
+            </label>
+            <label>
+              Course Name
+              <input name="courseName" placeholder="new course name" />
+            </label>
+            <label>
+              Course Fees
+              <input
+                name="courseFees"
+                type="number"
+                min="0"
+                step="1"
+                placeholder="new fees"
+              />
+            </label>
+          </div>
+          <button type="submit" class="secondary">Update</button>
+          <p class="muted small">
+            If your backend requires different field names, adjust in
+            <code>app.js</code>.
+          </p>
+        </form>
+      </section>
+
+      <footer class="footer muted small">
+        <span
+          >Endpoints: POST /addbatchentry · GET /getbatchentries · PUT
+          /updatebatchentry/{id} · DELETE /deletebatchentry/{id}</span
+        >
+      </footer>
+    </main>
+
+    <script src="./config.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
