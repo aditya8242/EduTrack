@@ -101,7 +101,7 @@ async function loadEntries() {
   setStatus("Loading entries...");
   els.tbody.innerHTML = `<tr><td colspan="5" class="muted">Loading...</td></tr>`;
   try {
-    const data = await request("/getbatchentries", { method: "GET" });
+    const data = await request("/getbatches", { method: "GET" });
     const arr = Array.isArray(data) ? data : data?.data || data?.result || [];
     cache = arr.map(mapEntry);
     applySearch();
@@ -113,20 +113,20 @@ async function loadEntries() {
 }
 
 async function addEntry(payload) {
-  return request("/addbatchentry", {
+  return request("/batches", {
     method: "POST",
     body: JSON.stringify(payload),
   });
 }
 
 async function deleteEntry(id) {
-  return request(`/deletebatchentry/${encodeURIComponent(id)}`, {
+  return request(`/batches/id/${encodeURIComponent(id)}`, {
     method: "DELETE",
   });
 }
 
 async function updateEntry(id, payload) {
-  return request(`/updatebatchentry/${encodeURIComponent(id)}`, {
+  return request(`/batches/id/${encodeURIComponent(id)}`, {
     method: "PUT",
     body: JSON.stringify(payload),
   });
