@@ -1,0 +1,123 @@
+:root {
+    /* Blueprint Theme */
+    --navy-deep: #0f1c2e;    /* Deepest Navy */
+    --navy-light: #1f3a5f;   /* Panel Background */
+    --text-white: #e2e8f0;   /* White Text */
+    --cyan-pop: #00f0ff;     /* Electric Cyan Accent */
+    --cyan-dim: rgba(0, 240, 255, 0.1);
+    --border-color: #3b5a85;
+    
+    --font-head: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--navy-deep);
+    color: var(--text-white);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* Blueprint Grid Background */
+.grid-background {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(59, 90, 133, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 90, 133, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.main-container { width: 100%; max-width: 850px; }
+
+/* Header */
+header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 2rem; border-bottom: 2px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.logo-box { display: flex; align-items: center; gap: 10px; }
+h1 { font-family: var(--font-head); font-size: 2.5rem; letter-spacing: -1px; color: var(--text-white); }
+
+.status-dot {
+    width: 12px; height: 12px; background-color: var(--cyan-pop);
+    border-radius: 50%; box-shadow: 0 0 10px var(--cyan-pop);
+}
+
+.sys-id { font-family: monospace; color: var(--border-color); letter-spacing: 1px; }
+
+/* Panel & Forms */
+.panel {
+    background: var(--navy-light);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.2);
+}
+
+.panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+h2, h3 { font-family: var(--font-head); color: var(--cyan-pop); font-weight: 500; letter-spacing: 1px; }
+
+.cancel-tag {
+    background: transparent; border: 1px solid #ff4d4d; color: #ff4d4d;
+    padding: 4px 10px; font-size: 0.7rem; cursor: pointer;
+    font-family: monospace;
+}
+.hidden { display: none; }
+
+.inputs-row { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin-bottom: 20px; }
+
+.input-block { display: flex; flex-direction: column; }
+label { font-size: 0.7rem; font-family: monospace; color: #8fa3bf; margin-bottom: 8px; }
+
+input {
+    background: var(--navy-deep); border: 1px solid var(--border-color);
+    color: var(--cyan-pop); padding: 12px; font-family: monospace; font-size: 1.1rem;
+}
+input:focus { outline: none; border-color: var(--cyan-pop); }
+
+.execute-btn {
+    width: 100%; background: var(--cyan-pop); color: var(--navy-deep);
+    border: none; padding: 15px; font-family: var(--font-head);
+    font-weight: 700; font-size: 1rem; cursor: pointer;
+    text-transform: uppercase; letter-spacing: 1px;
+    transition: 0.2s;
+}
+.execute-btn:hover { background: white; }
+
+/* Monitor / Table */
+.monitor { border: 1px solid var(--border-color); background: rgba(15, 28, 46, 0.8); }
+
+.monitor-head {
+    padding: 15px 20px; border-bottom: 1px solid var(--border-color);
+    background: var(--navy-light); display: flex; justify-content: space-between;
+}
+
+.refresh-btn { background: none; border: none; color: #8fa3bf; cursor: pointer; font-family: monospace; }
+.refresh-btn:hover { color: var(--text-white); }
+
+table { width: 100%; border-collapse: collapse; }
+
+th {
+    text-align: left; padding: 15px 20px; font-size: 0.75rem;
+    font-family: monospace; color: #8fa3bf; border-bottom: 1px solid var(--border-color);
+}
+
+td { padding: 15px 20px; border-bottom: 1px solid var(--border-color); }
+tr:last-child td { border-bottom: none; }
+
+.action-btn {
+    background: none; border: none; font-family: monospace; font-size: 0.85rem;
+    cursor: pointer; text-decoration: underline; margin-left: 10px;
+}
+.edit-btn { color: var(--cyan-pop); }
+.del-btn { color: #ff4d4d; }
+
+@media (max-width: 600px) { .inputs-row { grid-template-columns: 1fr; } }
