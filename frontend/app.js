@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080";
+const API_URL = "https://edutrack-3426.onrender.com";
 
 // --- GLOBAL STATE (The Fix for 'Object' errors) ---
 let currentBatches = []; 
